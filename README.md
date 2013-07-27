@@ -1,6 +1,13 @@
-This is the English translation of the documenation.
-Work is in Progress.
-Typos may occur.
+This is the English translation of Ethna's documenation.
 
-``_build/html/index.html``
+Read the Documents Here
+-----------------------
+
+<https://ethna-english-documentation.readthedocs.org/en/latest/>
+
+Pull Request
+-------------
+
+<https://github.com/ethna/ethna.github.com/pull/1>
+
 
