@@ -10,4 +10,8 @@ Pull Request
 
 <https://github.com/ethna/ethna.github.com/pull/1>
 
+Ethna Powered Pages Example
+---------------------------
 
+- Apps: http://www8355ue.sakura.ne.jp/?action_classifiers_sentiment=true
+- Home: http://www8355ue.sakura.ne.jp
