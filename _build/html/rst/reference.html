@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,7 +7,7 @@
     
     <title>Misc References &mdash; ethna 2.6 documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -24,7 +23,8 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="ethna 2.6 documentation" href="../index.html" />
-    <link rel="prev" title="App Object" href="appobject.html" /> 
+    <link rel="prev" title="App Object" href="appobject.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="../_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
     <div class="related">
@@ -38,36 +38,7 @@
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">ethna 2.6 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
-            
-  <div class="section" id="misc-references">
-<h1>Misc References<a class="headerlink" href="#misc-references" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="preventing-double-post">
-<h2>Preventing Double POST<a class="headerlink" href="#preventing-double-post" title="Permalink to this headline">¶</a></h2>
-<p>A neat little trick for preventing duplicate POST on form submission using Ethna&#8217;s
-Util class static method <tt class="docutils literal"><span class="pre">isDuplicatePost()</span></tt>.</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
-<span class="k">function</span> <span class="nf">perform</span><span class="p">()</span>
-     <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">Ethna_Util</span><span class="o">::</span><span class="na">isDuplicatePost</span><span class="p">())</span> <span class="p">{</span>
-           <span class="c1">//If it is a duplicate post</span>
-           <span class="k">return</span> <span class="s1">&#39;regist_done&#39;</span><span class="p">;</span>
-        <span class="p">}</span>
-     <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
+    </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
@@ -101,6 +72,35 @@ Util class static method <tt class="docutils literal"><span class="pre">isDuplic
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="misc-references">
+<h1>Misc References<a class="headerlink" href="#misc-references" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preventing-double-post">
+<h2>Preventing Double POST<a class="headerlink" href="#preventing-double-post" title="Permalink to this headline">¶</a></h2>
+<p>A neat little trick for preventing duplicate POST on form submission using Ethna&#8217;s
+Util class static method <tt class="docutils literal"><span class="pre">isDuplicatePost()</span></tt>.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">perform</span><span class="p">()</span>
+     <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">Ethna_Util</span><span class="o">::</span><span class="na">isDuplicatePost</span><span class="p">())</span> <span class="p">{</span>
+           <span class="c1">//If it is a duplicate post</span>
+           <span class="k">return</span> <span class="s1">&#39;regist_done&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
     <div class="related">
@@ -117,7 +117,7 @@ Util class static method <tt class="docutils literal"><span class="pre">isDuplic
     </div>
     <div class="footer">
         &copy; Copyright 2013, Ethna Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

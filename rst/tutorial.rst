@@ -4,19 +4,19 @@ Tutorial
 Setup 1 Projects
 ----------------
 
-This section teaches you to build your project 
+This section teaches you to build your project
 in just a few steps with Ethna using **command line**.
 
 .. hint::
 
-   Make sure once the Ethna is installed on your computer, you have made 
+   Make sure once the Ethna is installed on your computer, you have made
    changes to your ``php.ini`` files. i.e. pear libraries are in the include
    path. On a Mac, you would do something like the following
 
    .. code-block:: bash
 
       $ emacs /etc/php.ini
-      
+
       And then add the appropriate path
 
       ; include_path = ".:/Users/YOUR-USER-NAME/pear/share/pear/"
@@ -44,7 +44,7 @@ Before developing an Application, there are two points to keep in mind.
 1. Application ID (*must be letters*)
    e.g. miniblog
 
-2. Application Directory. Usually on Linux, it is ``/var/www/``. Although, you may change it your directory by modifying the 
+2. Application Directory. Usually on Linux, it is ``/var/www/``. Although, you may change it your directory by modifying the
    ``/etc/apache/httpd.config`` file.
 
 In this tutorial, we are going to use ``/var/www/``.
@@ -80,22 +80,22 @@ Let's take a peek at the directory and the files generated.
 
 ::
 
-   | - App (directory of the application) 
-   | | - Action (Action Script) 
-   | | - plugin (filter script) 
-   | | - test (test scripts) 
-   | `- View (view script) 
-   | - bin ( command line scripts) 
-   | - etc (configuration files, etc.) 
-   | - lib library) (application 
-   | - locale 
-   | `- ja_JP 
-   | - log (log file) 
-   | - schema (DB schema, etc.) 
-   | - - skel (skeleton application file) 
-   | - template 
-   | `- ja_JP (template file) 
-   | - tmp (temp files) 
+   | - App (directory of the application)
+   | | - Action (Action Script)
+   | | - plugin (filter script)
+   | | - test (test scripts)
+   | `- View (view script)
+   | - bin ( command line scripts)
+   | - etc (configuration files, etc.)
+   | - lib library) (application
+   | - locale
+   | `- ja_JP
+   | - log (log file)
+   | - schema (DB schema, etc.)
+   | - - skel (skeleton application file)
+   | - template
+   | `- ja_JP (template file)
+   | - tmp (temp files)
    `- www (web publishing file)
 
 Common use is in the following directory.
@@ -108,7 +108,7 @@ Common use is in the following directory.
 2. Setting Application's Url
 ++++++++++++++++++++++++++++
 
-Although you may see it on the ``localhost/miniblog/www``. Also, in order to access the application from web browser, i.e. ``var/www/``. 
+Although you may see it on the ``localhost/miniblog/www``. Also, in order to access the application from web browser, i.e. ``var/www/``.
 We are going to set the **Apache Virtual Host** to ``http://miniblog.myhost/`` like the following:
 
 ::
@@ -120,7 +120,7 @@ We are going to set the **Apache Virtual Host** to ``http://miniblog.myhost/`` l
 
 Set up is complete lets try to view in the browser
 
-:: 
+::
 
    http://miniblog.myhost/
 
@@ -150,7 +150,7 @@ Next we are going to create action hello, which will be accessible from the foll
 There are 3 things to do
 
 - ``add-action hello``
-- ``add-view hello`` 
+- ``add-view hello``
 - ``add-template hello``
 
 Let's jump to the command line and do the above 3 steps.
@@ -171,7 +171,7 @@ Let's jump to the command line and do the above 3 steps.
 
 .. tip::
 
-   You can add a view and template in one command by adding ``-t`` like this 
+   You can add a view and template in one command by adding ``-t`` like this
      ::
 
        add-view -t hello
@@ -203,7 +203,7 @@ Action
 ++++++
 
 With the command ``ethna add-action hello``, ``Hello.php`` is created in the directory
-``app/action/Hello.php``. In this php file there are two classes. As a courtesy, comments 
+``app/action/Hello.php``. In this php file there are two classes. As a courtesy, comments
 are also generated, but for this tutorial I am omitting the comments. The two classes follows next.
 
 
@@ -233,7 +233,7 @@ are also generated, but for this tutorial I am omitting the comments. The two cl
 ``Miniblog_Form_Hello``
 
 This is the action form class, and inherits Ethna's ActionForm class.
-In this class the form for POST and/or GET is defined. We will discuss 
+In this class the form for POST and/or GET is defined. We will discuss
 more about forms later in this documentation.
 
 
@@ -267,14 +267,14 @@ in the function ``preforward()``, using ``setApp()``.
 Template
 ++++++++
 
-Last one is template which is created by the command ``ethna add-template hello`` in the 
+Last one is template which is created by the command ``ethna add-template hello`` in the
 directory ``template/ja_JP/hello.tpl``
 
 Lets, play with the ``helloVariable`` and try to print it in the template
 
 .. code-block:: php
 
-   <h2> New Template </h2> 
+   <h2> New Template </h2>
    <p> {$app.helloVariable} </p>
 
 
@@ -299,9 +299,9 @@ First is to quickly add an action named ``commit`` by the command ``ethna add-ac
    action script(s) successfully created [/var/www/miniblog/app/action/Commit.php]
 
 As the message also shows, there should be a file generated in ``app/action/Commit.php``
-Here, there are two classes, 
+Here, there are two classes,
 
-1. ``class Miniblog_Form_Commit extends Miniblog_ActionForm`` that handles the input fields for the form 
+1. ``class Miniblog_Form_Commit extends Miniblog_ActionForm`` that handles the input fields for the form
 2. ``class Miniblog_Action_Commit extends Miniblog_ActionClass`` that performs actions upon input/submitting the form
 
 Lets take a look at them one by one
@@ -312,19 +312,19 @@ Creating Form
 And in ``app/action/Commit.php`` file.
 
 .. code-block:: php
-   
+
    <?php
-   class Miniblog_Form_Commit extends Miniblog_ActionForm 
-   { 
-       protected  $form  =  array( 
-           'Comment'  =>  array( 
-               'type'  =>  VAR_TYPE_STRING, 
-               'form_type'  =>  FORM_TYPE_TEXTAREA, 
-               'name'  =>  'comment', 
-               'max'  =>  140, 
-               'required '  =>  true, 
-           ), 
-       ); 
+   class Miniblog_Form_Commit extends Miniblog_ActionForm
+   {
+       protected  $form  =  array(
+           'Comment'  =>  array(
+               'type'  =>  VAR_TYPE_STRING,
+               'form_type'  =>  FORM_TYPE_TEXTAREA,
+               'name'  =>  'comment',
+               'max'  =>  140,
+               'required '  =>  true,
+           ),
+       );
 
    }
 
@@ -353,7 +353,7 @@ And the second class
        }
    }
 
-We will talk about this second class ``Miniblog_ActionClass`` soon, but first lets create the form to 
+We will talk about this second class ``Miniblog_ActionClass`` soon, but first lets create the form to
 be shown in the browser.
 
 Display Form
@@ -401,7 +401,7 @@ Here we explain about the ``Miniblog_ActionClass`` where the validations to the 
 
 .. code-block:: php
 
-   public function prepare() 
+   public function prepare()
    {
       if ($this->af->validate() > 0) {
           return 'index';
@@ -412,7 +412,7 @@ Here we explain about the ``Miniblog_ActionClass`` where the validations to the 
 Firstly, ``prepare()`` is called, here the necessary preparations can be done, like assigning values to instances,
 performing checks etc.
 
-``$this->af`` is the action form object, while ``validate()`` executes the method that performs validations on the 
+``$this->af`` is the action form object, while ``validate()`` executes the method that performs validations on the
 input value. The point here is that if there is a trouble with the validation, the next method ``prepare()`` will not
 be called and instead the ``index`` will be returned (rendered).
 
@@ -438,14 +438,14 @@ Error content for the form are handled by the variable ``$error``.
 
    {/form}
 
-Where the output of the above code would be the following, if the characters in the text area 
+Where the output of the above code would be the following, if the characters in the text area
 are more than 140 or 0.
 
 .. image:: ../images/tutorial_03-02.png
    :scale: 100 %
    :alt: alternate text
    :align: center
-   
+
 
 
 Connection to Database
@@ -459,7 +459,7 @@ In this section, we talk about the following things
 Setting Database
 ++++++++++++++++
 
-Setting database is pretty straight forward with ethna. 
+Setting database is pretty straight forward with ethna.
 Settings are defined in ``etc/miniblog-ini.php``.
 To connect to the database uncomment the ``dsn`` like the following.
 
@@ -480,7 +480,7 @@ To connect to the database uncomment the ``dsn`` like the following.
      // 'dsn' => 'mysql://user:password@server/database',
      // ...
 
-Replace the 
+Replace the
 
 - ``user`` with your ``DB username``
 - ``password`` with your ``password``
@@ -514,7 +514,7 @@ SELECT, INSERT, UPDATE with ``$db``
    $params = array("1");
    $stmt = & $db->db->prepare($sql);
    $res = & $db->db->execute($stmt,$params);
-   
+
    echo "<pre>";
    $i = 0;
    while ($data[$i] = $res->fetchRow()) {
@@ -539,8 +539,8 @@ SELECT, INSERT, UPDATE with ``$db``
           );
     $stmt = & $db->db->prepare($sql);
     $res = & $db->db->execute($stmt,$params);
-     
-    //Note that this message only exists in case of DB error         
+
+    //Note that this message only exists in case of DB error
     if (method_exists($res, 'getMessage')){
         var_dump($res->getMessage());
     }

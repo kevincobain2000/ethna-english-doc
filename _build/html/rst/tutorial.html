@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,7 +7,7 @@
     
     <title>Tutorial &mdash; ethna 2.6 documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,7 +24,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="ethna 2.6 documentation" href="../index.html" />
     <link rel="next" title="Session" href="session.html" />
-    <link rel="prev" title="Installation" href="installation.html" /> 
+    <link rel="prev" title="Installation" href="installation.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="../_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
     <div class="related">
@@ -42,7 +42,72 @@
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">ethna 2.6 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tutorial</a><ul>
+<li><a class="reference internal" href="#setup-1-projects">Setup 1 Projects</a><ul>
+<li><a class="reference internal" href="#simple-blog-application">Simple Blog Application</a></li>
+<li><a class="reference internal" href="#application-information">1. Application information</a></li>
+<li><a class="reference internal" href="#verifying-the-directory-structure">Verifying the Directory Structure</a></li>
+<li><a class="reference internal" href="#setting-application-s-url">2. Setting Application&#8217;s Url</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flow-of-creation-processing-action-view-template">Flow of creation &amp; processing: Action, View, Template</a><ul>
+<li><a class="reference internal" href="#create-action-view-template">Create action, view, template</a></li>
+<li><a class="reference internal" href="#flow-of-processing-in-ethna">Flow of processing in Ethna</a></li>
+<li><a class="reference internal" href="#action">Action</a></li>
+<li><a class="reference internal" href="#view">View</a></li>
+<li><a class="reference internal" href="#template">Template</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#implementation-of-application">Implementation of Application</a><ul>
+<li><a class="reference internal" href="#add-action">Add action</a></li>
+<li><a class="reference internal" href="#creating-form">Creating Form</a></li>
+<li><a class="reference internal" href="#display-form">Display Form</a></li>
+<li><a class="reference internal" href="#showing-the-post-content">Showing the POST content</a></li>
+<li><a class="reference internal" href="#display-validation-and-error-content-of-post">Display Validation and Error content of POST</a></li>
+<li><a class="reference internal" href="#displaying-errors">Displaying Errors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connection-to-database">Connection to Database</a><ul>
+<li><a class="reference internal" href="#setting-database">Setting Database</a></li>
+<li><a class="reference internal" href="#connecting-to-database-in-action-class">Connecting to Database in Action Class</a></li>
+<li><a class="reference internal" href="#select-insert-update-with-db">SELECT, INSERT, UPDATE with <tt class="docutils literal"><span class="pre">$db</span></tt></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="session.html"
+                        title="next chapter">Session</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/rst/tutorial.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -508,71 +573,6 @@ To connect to the database uncomment the <tt class="docutils literal"><span clas
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Tutorial</a><ul>
-<li><a class="reference internal" href="#setup-1-projects">Setup 1 Projects</a><ul>
-<li><a class="reference internal" href="#simple-blog-application">Simple Blog Application</a></li>
-<li><a class="reference internal" href="#application-information">1. Application information</a></li>
-<li><a class="reference internal" href="#verifying-the-directory-structure">Verifying the Directory Structure</a></li>
-<li><a class="reference internal" href="#setting-application-s-url">2. Setting Application&#8217;s Url</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#flow-of-creation-processing-action-view-template">Flow of creation &amp; processing: Action, View, Template</a><ul>
-<li><a class="reference internal" href="#create-action-view-template">Create action, view, template</a></li>
-<li><a class="reference internal" href="#flow-of-processing-in-ethna">Flow of processing in Ethna</a></li>
-<li><a class="reference internal" href="#action">Action</a></li>
-<li><a class="reference internal" href="#view">View</a></li>
-<li><a class="reference internal" href="#template">Template</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#implementation-of-application">Implementation of Application</a><ul>
-<li><a class="reference internal" href="#add-action">Add action</a></li>
-<li><a class="reference internal" href="#creating-form">Creating Form</a></li>
-<li><a class="reference internal" href="#display-form">Display Form</a></li>
-<li><a class="reference internal" href="#showing-the-post-content">Showing the POST content</a></li>
-<li><a class="reference internal" href="#display-validation-and-error-content-of-post">Display Validation and Error content of POST</a></li>
-<li><a class="reference internal" href="#displaying-errors">Displaying Errors</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#connection-to-database">Connection to Database</a><ul>
-<li><a class="reference internal" href="#setting-database">Setting Database</a></li>
-<li><a class="reference internal" href="#connecting-to-database-in-action-class">Connecting to Database in Action Class</a></li>
-<li><a class="reference internal" href="#select-insert-update-with-db">SELECT, INSERT, UPDATE with <tt class="docutils literal"><span class="pre">$db</span></tt></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="previous chapter">Installation</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="session.html"
-                        title="next chapter">Session</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/rst/tutorial.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
       <div class="clearer"></div>
     </div>
     <div class="related">
@@ -592,7 +592,7 @@ To connect to the database uncomment the <tt class="docutils literal"><span clas
     </div>
     <div class="footer">
         &copy; Copyright 2013, Ethna Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

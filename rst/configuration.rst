@@ -15,8 +15,8 @@ We already discussed previously when setting up the Database like the following
     'dsn'   => 'mysql://user:pass@unix+localhost/dbname',
    );
 
- 
-Now, to access the config items in ActionClass of your app you can call using the following   
+
+Now, to access the config items in ActionClass of your app you can call using the following
 
 .. code-block:: php
 
@@ -42,18 +42,18 @@ Similarity we can also define the memcached configuration in the same file as
    <?php
    $config = array(
    // sample-1: single (or default) memcache
-   'memcache_host' => 'localhost',   
-   'memcache_port' => 11211,         
+   'memcache_host' => 'localhost',
+   'memcache_port' => 11211,
    'memcache_use_pconnect' => false, //persistent connection
-   'memcache_retry' => 3,            
-   'memcache_timeout' => 3,          
+   'memcache_retry' => 3,
+   'memcache_timeout' => 3,
     );
- 
+
 It is also possible to define more than one configs for memcache as
 
 .. code-block:: php
 
-   <?php 
+   <?php
    $config = array(
    // sample-2: multiple memcache servers (distributing w/ namespace and ids)
    'memcache' => array(

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Memcached &mdash; ethna 2.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="ethna 2.6 documentation" href="../index.html" />
+    <link rel="next" title="Internationalization" href="internationalization.html" />
+    <link rel="prev" title="Writing Logs" href="log.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="../_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="internationalization.html" title="Internationalization"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="log.html" title="Writing Logs"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ethna 2.6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="log.html"
+                        title="previous chapter">Writing Logs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="internationalization.html"
+                        title="next chapter">Internationalization</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/rst/memcache.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="memcached">
+<h1>Memcached<a class="headerlink" href="#memcached" title="Permalink to this headline">¶</a></h1>
+<p><strong>Step 1:</strong> Set up <tt class="docutils literal"><span class="pre">your_ethna_project/etc/php.ini</span></tt></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="s1">&#39;memcache_host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+<span class="s1">&#39;memcache_port&#39;</span> <span class="o">=&gt;</span> <span class="mi">11211</span><span class="p">,</span>
+<span class="s1">&#39;memcache_use_pconnect&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+<span class="s1">&#39;memcache_retry&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+<span class="s1">&#39;memcache_timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+</pre></div>
+</div>
+<p><strong>Step 2:</strong> Creating Memcache object in Class</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">Php_Action_SomeAction</span> <span class="k">extends</span> <span class="nx">Php_ActionClass</span>
+             <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$backend</span><span class="p">)</span>
+     <span class="p">{</span>
+             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span> <span class="o">=&amp;</span> <span class="nv">$backend</span><span class="o">-&gt;</span><span class="na">plugin</span><span class="o">-&gt;</span><span class="na">getPlugin</span><span class="p">(</span><span class="s1">&#39;Cachemanager&#39;</span><span class="p">,</span> <span class="s1">&#39;Memcache&#39;</span><span class="p">);</span>
+             <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">setNamespace</span><span class="p">(</span><span class="s2">&quot;some_action&quot;</span><span class="p">);</span>
+
+             <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$backend</span><span class="p">);</span>
+     <span class="p">}</span>
+</pre></div>
+</div>
+<p>In the above code, you can set <tt class="docutils literal"><span class="pre">setNamespace</span></tt> for your memcache. In the sense
+it adds a prefix to all the cache keys that will be set by <tt class="docutils literal"><span class="pre">$this-&gt;cache</span></tt> in this class. Its better that ways if you are going to be dealing thousands of keys on a large system.</p>
+<p><strong>Step 3:</strong> After Memcache Object has been set, then you are able to make your own methods within the class to store data.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">private</span> <span class="k">function</span> <span class="nf">setCache</span><span class="p">(</span><span class="nv">$urls</span><span class="p">,</span> <span class="nv">$thumbs</span><span class="p">)</span>
+<span class="p">{</span>
+     <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;urls&#39;</span> <span class="o">=&gt;</span> <span class="nv">$urls</span><span class="p">,</span> <span class="s1">&#39;thumbs&#39;</span> <span class="o">=&gt;</span> <span class="nv">$thumbs</span><span class="p">);</span>
+     <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">member</span><span class="p">,</span> <span class="nv">$data</span><span class="p">,</span> <span class="mi">3600</span><span class="p">);</span> <span class="c1">// 24 hours expiration</span>
+<span class="p">}</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Cache key from Member Name e.g. Johny</span>
+<span class="sd"> * @return array cache value from key</span>
+<span class="sd"> */</span>
+<span class="k">private</span> <span class="k">function</span> <span class="nf">getCache</span><span class="p">()</span>
+<span class="p">{</span>
+         <span class="nv">$cache</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">member</span><span class="p">);</span> <span class="c1">//e.g Johny</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nx">PEAR</span><span class="o">::</span><span class="na">isError</span><span class="p">(</span><span class="nv">$cache</span><span class="p">))</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="nv">$cache</span><span class="p">;</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Step 4:</strong> Verifying ?</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>bash<span class="o">]</span> memcached-tool localhost:11211 dump|grep Johny
+       add some_action::Johny 3
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">In the above example of getCache, I have used <tt class="docutils literal"><span class="pre">PEAR::isError</span></tt>. However, if you look closely in your <tt class="docutils literal"><span class="pre">usr/share/pear/Ethna/class/Plugin/Cachemanager/Ethna_Plugin_Cachemanager_Memcache.php</span></tt>, you may find that it is throwing Ethna:: Error instead of PEAR. Its better to know anyways that if you wanna change that just edit every where it appears. Example:</p>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">146     function get($key, $lifetime = null, $namespace = null)</span>
+<span class="x">147     {</span>
+<span class="x">148         $this-&gt;_getMemcache($key, $namespace);</span>
+<span class="x">149         if ($this-&gt;memcache == null) {</span>
+<span class="x">150             return PEAR::raiseError(&#39;memcache server not available&#39;, E_CACHE_NO_VALUE);</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="internationalization.html" title="Internationalization"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="log.html" title="Writing Logs"
+             >previous</a> |</li>
+        <li><a href="../index.html">ethna 2.6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Ethna Project.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

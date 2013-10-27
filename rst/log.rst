@@ -6,8 +6,8 @@ In the configuration  file e.g. ``appname/etc/appname-ini.php``
 **Add the following lines for log in config**
 
 .. code-block:: php
-    
-   <?php   
+
+   <?php
    $config = array(
        'url' => '',
        'debug' => false,
@@ -25,7 +25,7 @@ In the configuration  file e.g. ``appname/etc/appname-ini.php``
           'path'                   => '../tmp', //THIS IS IF YOU WANT TO SET THE SESSION FILES PATH
           'check_remote_addr'      => true,
        ),
-   
+
     'log' => array(
         'file' => array(
             'level'           => 'notice',
@@ -47,10 +47,10 @@ In the configuration  file e.g. ``appname/etc/appname-ini.php``
     <?php
     function prepare()
     {
- 
+
         $logger = $this->backend->getLogger();
         $logger->log(LOG_NOTICE, "Testing Dir. File Should be Created in appname/tmp/error.log");
-        
+
         //ALSO a session file sess_**** should also be created in appname/tmp/sess_*****
         $this->session->start();
 
